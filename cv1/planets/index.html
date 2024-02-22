@@ -16,10 +16,10 @@
         </div>
         <div class="d-flex flex-column">
             <div>
-                Planet: <input type="text" v-model="planetName"><br>
+                Planet: <input type="text" v-model="newPlanet.name"><br>
             </div>
             <div>
-                Oxygen level: <input type="number" v-model="oxygenLevel"><br>
+                Oxygen level: <input type="number" v-model="newPlanet.oxygenLevel"><br>
             </div>
             <button @click="addPlanet" class="w-100 btn btn-primary btn-sm mt-1">Add planet</button>
         </div>
@@ -45,12 +45,13 @@
                     }
                 ]);
                 const addPlanet = () => {
-                    planets.push({ name: planetName.value, oxygenLevel: oxygenLevel.value });
+                    planets.push({ name: newPlanet.name, oxygenLevel: newPlanet.oxygenLevel });
                     console.log(planets);
                 }
                 return {
                     planets,
                     planetName,
+                    newPlanet,
                     oxygenLevel,
                     addPlanet,
                 }
