@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="planet in planets">{{ planet.name }}, {{planet.oxygenLevel}}</li>
+        </ul>
+    </div>
+    <script>
+        const { createApp, ref } = Vue
+        createApp({
+            setup() {
+                const planets = [
+                    {
+                        name: "Earth",
+                        oxygenLevel: 21
+                    },
+                    {
+                        name: "Saturn",
+                        oxygenLevel: 0.05
+                    }
+                ];
+                return {
+                    planets
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
