@@ -1,0 +1,21 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Hi <span id="name"></span></h1>
+    <input type="text" id="textbox">
+    <button onclick="updateName()">Update name</button>
+    <script>
+
+
+        const updateName = () => {
+            const name = document.querySelector('#textbox').value;
+            document.querySelector('#name').textContent = name;
+        }
+    </script>
+</body>
+
+</html>
