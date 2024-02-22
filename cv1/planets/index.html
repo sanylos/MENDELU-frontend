@@ -9,12 +9,21 @@
         <ul>
             <li v-for="planet in planets">{{ planet.name }}, {{planet.oxygenLevel}}</li>
         </ul>
+        Planet:<input type="text" v-model="planetName"><br>
+        Oxygen level:<input type="number" v-model="oxygenLevel"><br>
+        <button @click="addPlanet" >Add planet</button>
     </div>
     <script>
-        const { createApp, ref } = Vue
+        const { createApp, ref, reactive } = Vue
         createApp({
             setup() {
-                const planets = [
+                const newPlanet = reactive({
+                    name: "",
+                    oxygenLevel: 0
+                })
+                const planetName = ref("");
+                const oxygenLevel = ref(0);
+                const planets = reactive([
                     {
                         name: "Earth",
                         oxygenLevel: 21
@@ -23,9 +32,16 @@
                         name: "Saturn",
                         oxygenLevel: 0.05
                     }
-                ];
+                ]);
+                const addPlanet = () => {
+                    planets.push({name: planetName.value, oxygenLevel: oxygenLevel.value});
+                    console.log(planets);
+                }
                 return {
-                    planets
+                    planets,
+                    planetName,
+                    oxygenLevel,
+                    addPlanet,
                 }
             }
         }).mount('#app')
