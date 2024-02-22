@@ -47,6 +47,8 @@
                 const addPlanet = () => {
                     planets.push({ name: newPlanet.name, oxygenLevel: newPlanet.oxygenLevel });
                     console.log(planets);
+                    newPlanet.name = "";
+                    newPlanet.oxygenLevel=0;
                 }
                 return {
                     planets,
