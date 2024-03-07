@@ -8,9 +8,7 @@ import { type UserWithId } from "./3"
 
 type UserTuple = [number, string]
 
-const usersTuple: Array<UserTuple> = [];
-usersWithId.slice(0,4).map((user) => {
-    usersTuple.push([user.id, user.lastName.toUpperCase()])
-})
+const usersTuple: Array<UserTuple> = usersWithId.slice(0, 4).map((user) => [user.id, user.lastName.toUpperCase()])
+
 
 console.log(usersTuple)
